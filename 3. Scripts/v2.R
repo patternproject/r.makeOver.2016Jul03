@@ -142,11 +142,11 @@ g.1
 g.2 = ggplot() + theme_minimal()
 
 #g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q),position=position_jitter(0.2))
+#g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q),position=position_jitter(0.5))
+g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q))
 
-g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q),position=position_jitter(0.5))
 
-
-g.2 = g.2 + scale_colour_brewer(palette="RdBu") 
+g.2 = g.2 + scale_colour_brewer(palette="RdBu",name = "Overall Index",labels = c("Leaders","Fast Transitioners","Transitioners","Emerging","Discoverers")) 
 
 #g.2 = g.2 + theme(panel.background = element_rect(fill = "#929AAF"))
 #g.2 = g.2 + theme(panel.background = element_rect(fill = "#969696"))
@@ -159,6 +159,9 @@ g.2 = g.2 + theme (
   #panel.background = element_rect(fill = "#C9C9C9"),
   panel.background = element_rect(fill = "#8C8C8C"),
   
+  # http://docs.ggplot2.org/dev/vignettes/themes.html
+  panel.border = element_rect(fill = NA, colour = "#8C8C8C", size = 1),
+  
   panel.grid.major.x = element_blank(),
   panel.grid.minor.x = element_blank(),
   
@@ -169,21 +172,44 @@ g.2 = g.2 + theme (
   
   axis.ticks.x = element_blank(),
   axis.ticks.y = element_blank(),
+  #axis.ticks.margin = element_blank(),
   
-  axis.title.x = element_text(margin=margin(t=-5),vjust=-5),
+  axis.text.x = element_text(margin=margin(0,0,-10,0)),
+  axis.text.y = element_text(margin=margin(0,-10,0,0)),
+  
+  
+  #axis.title.x = element_text(margin=margin(t=-5),vjust=1),
   #axis.title.x = element_text(margin=margin(0,0,-5,0), vjust=-5),
   #axis.title.x = element_text(margin=margin(t=-20)),
+  #axis.title.x = element_text(vjust=1),
+  #axis.title.x = element_text(hjust=1),
+  #axis.title.x = element_text(hjust=0),
+  #axis.title.x = element_text(margin=margin(0,0,0,0)),
+  axis.title.x = element_text(margin=margin(-5,0,-5,0), vjust=-5),
   
-  axis.title.y = element_text(margin=margin(l=-5), hjust=-5),
+  #axis.title.y = element_text(margin=margin(l=-5), hjust=1),
   #axis.title.y = element_text(size = 8),
+  #axis.title.y = element_text(hjust=1),
+  #axis.title.y = element_text(vjust=1),
+  axis.title.y = element_text(margin=margin(0,-5,0,-5)),
   
-    # src:
+  # src:
   # https://rud.is/b/2016/06/16/your-data-vis-spidey-sense-the-need-for-a-robust-utility-belt/
   plot.subtitle=element_text(size=9.5, margin=margin(b=10)),
   plot.caption=element_text(size=7, margin=margin(t=10)),
   # margin around entire plot ('unit' with the sizes of the top, right, bottom, and left
   # margins)
-  plot.margin=margin(10,10,10,10)
+  plot.margin=margin(10,10,10,10),
+  
+  
+  
+  #legend.background = element_rect(fill = "white"),
+  legend.position = c(0.10, 0.9),
+  legend.key = element_rect(fill = "black"),
+  legend.key.width = unit(0.1, "in"),
+  legend.key.height = unit(0.1, "in"),
+  legend.direction = "vertical"
+  
   
 )
 

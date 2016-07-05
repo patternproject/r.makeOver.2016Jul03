@@ -117,4 +117,69 @@ df.1 =
 ## `````````````````````````````````````````````
 #### Visulaize Data ####
 ## `````````````````````````````````````````````
+
+## g.1 ####
+g.1 = ggplot() + theme_minimal()
+
+g.1 = g.1 + geom_point(data=df.1,aes(x=economic.q,y=education.q,col=overall.q))
+
+# g.1 = g.1 + scale_color_manual(values = c(
+#   "L" = col.maroon,
+#   "F" = col.beige,
+#   "T" = col.green,
+#   "E" = col.pink,
+#   "D" = col.rust
+# ))
+
+# http://is-r.tumblr.com/post/34821021257/ggtutorial-day-5-gradient-colors-and-brewer
+# g.1 = g.1 + scale_color_gradientn(colours = terrain.colors(5))
+g.1 = g.1 + scale_colour_brewer(palette="RdBu") 
+
+g.1
+
+
+## g.2 ####
+g.2 = ggplot() + theme_minimal()
+
+#g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q),position=position_jitter(0.2))
+
+g.2 = g.2 + geom_jitter(data=df.1,aes(x=economic.q,y=education.q,col=overall.q),position=position_jitter(0.5))
+
+
+g.2 = g.2 + scale_colour_brewer(palette="RdBu") 
+
+#g.2 = g.2 + theme(panel.background = element_rect(fill = "#929AAF"))
+#g.2 = g.2 + theme(panel.background = element_rect(fill = "#969696"))
+
+
+g.2 = g.1 + theme (
+  #panel.background = element_blank(),
+  panel.background = element_rect(fill = "#969696"),
+  panel.grid.major.x = element_blank(),
+  panel.grid.minor.x = element_blank(),
+  panel.grid.minor.y = element_blank(),
+  #plot.caption=element_text(size=8, margin=margin(t=24),
+  axis.ticks.x = element_blank(),
+  axis.ticks.y = element_blank(),
+  #axis.title.x = element_blank(margin=margin(t=-24)),
+  #axis.title.y = element_blank()
+  axis.title.y = element_text(size = 8),
+  #axis.title.x = element_text(margin=margin(t=-20)),
+  axis.title.x = element_text(margin=margin(0,0,-10,0), vjust=-5),
+  
+  # src:
+  # https://rud.is/b/2016/06/16/your-data-vis-spidey-sense-the-need-for-a-robust-utility-belt/
+  plot.subtitle=element_text(size=9.5, margin=margin(b=10)),
+  plot.caption=element_text(size=7, margin=margin(t=10)),
+  # margin around entire plot ('unit' with the sizes of the top, right, bottom, and left
+  # margins)
+  plot.margin=margin(10,10,10,10)
+  
+)
+
+
+
+g.2
+
+
 ## `````````````````````````````````````````````

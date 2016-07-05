@@ -217,6 +217,14 @@ g.2 = g.2 + theme (
   
 )
 
+# vertical grid line
+#g.2 = g.2 + geom_vline(xintercept=which(df.1$economic.q == 'T'))
+#g.2 = g.2 + geom_vline(xintercept=median(which(df.1$economic.q == 'T')),col="white")
+# http://stackoverflow.com/questions/1831245/vertical-gridlines-in-ggplot-with-discrete-x-axis
+g.2 = g.2 + geom_vline(xintercept=which(levels(df.1$economic.q) %in% c("T")),col="black",linetype="dotted")
+
+# horizontal grid line
+g.2 = g.2 + geom_hline(yintercept=which(levels(df.1$education.q) %in% c("T")),col="black",linetype="dotted")
 
 
 g.2

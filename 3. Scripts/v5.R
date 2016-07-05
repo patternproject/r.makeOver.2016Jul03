@@ -269,7 +269,7 @@ g.2 <- g.2 + geom_curve(data=data.frame(), aes(x=4.25, xend=4, y=1.65, yend=4.75
 
 
 g.2 <- g.2 + labs(title="Does Education power Economic Outcome ?",
-                subtitle="Quantiles of Education Rank, on Y-AXIS VERSUS Quantiles of Economic Rank, on X-AXIS",
+                subtitle="Quantiles of Education Rank, on Y-axis VERSUS Quantiles of Economic Rank, on X-axis",
                 caption="Source: cnn.com")
 
 
@@ -277,3 +277,5 @@ g.2
 
 
 ## `````````````````````````````````````````````
+
+# TODO: Unable to add Parenthesis to Labels. 
